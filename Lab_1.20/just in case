@@ -1,0 +1,83 @@
+int index = 1;
+            if(oldPosition <=1)
+            {
+               original = p1.GetHead();
+               tempCopy = p1.GetHead();
+            }
+            
+            if(original == nullptr && beforeNewPos == nullptr)
+            {
+                bool newPositionFound = false;
+                for (PlaylistNode* curr = p1.GetHead(); curr != nullptr; curr = curr->GetNext()) 
+                {
+                    if (index == oldPosition)
+                    {
+                        cout<<"Found old pos"<<endl;
+                        original = curr;
+                        tempCopy = curr;
+                    }
+                    else if(index == newPosition-1 && !newPositionFound)
+                    {
+                        cout << "Found new Position" << endl;
+                        beforeNewPos = curr;
+                        newPositionFound = true;
+                    }
+                    index++;
+                }
+            }
+            index -= 1;
+            p1.remove(original->GetID());
+
+            //if moving the head
+                //if moving to tail
+                //moving to mid
+            if(tempCopy == p1.GetHead())
+            {
+                p1.setHead(tempCopy->GetNext());
+                beforeNewPos->InsertAfter(tempCopy);
+                
+                if(beforeNewPos == p1.GetTail())
+                {
+                    
+                    p1.setTail(tempCopy);
+                } 
+
+            }
+            //else if moving the tail
+                //if moving to head
+                //else moving to mid
+            // else if (tempCopy == p1.GetTail())
+            // {
+            //     if (newPosition <= 1)
+            //     {
+            //         tempCopy->SetNext(p1.GetHead());
+            //         p1.setHead(tempCopy);
+            //     }
+            //     else
+            //     {
+
+            //     }
+            // }
+            // if moving mid node
+                //if moving to head
+                //if moving to tail
+                //moving to mid
+            else
+            {
+                
+            }
+        
+
+            // if(tempCopy == p1.GetHead())
+            // {
+            //     p1.setHead->
+            // }
+            // if(newPosition <= 1)//move to head
+            // {
+            //     tempCopy->SetNext(p1.GetHead());
+            //     p1.setHead(tempCopy);
+            // }
+            // else //moving to  tail or inside
+            // {
+            //     beforeNewPos->InsertAfter(tempCopy);
+            // }

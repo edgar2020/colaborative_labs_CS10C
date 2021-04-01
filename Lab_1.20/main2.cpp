@@ -102,76 +102,7 @@ int main()
             cout << "Enter new position for song:" << endl;
             cin >> newPosition;
 
-            // p1.insert(newPosition, oldPosition);
-            // PlaylistNode *original = nullptr;
-            // PlaylistNode *beforeNewPos = nullptr;
-            // PlaylistNode *tempCopy = nullptr; 
-            PlaylistNode* beforeOld = nullptr;
-            PlaylistNode* beforeNew = nullptr;
-            PlaylistNode* atOldLocation = nullptr;
-            PlaylistNode* prev = nullptr;
-            PlaylistNode *original = nullptr;
-            PlaylistNode *temp = nullptr;
-
-            int index = 1;
-            bool two = false;
-            if (oldPosition <= 1) //if song current poistion is first
-            {
-                original = p1.GetHead();
-                cout << "Position less than 1" << endl;
-                if (newPosition == 2) { //if the new position is right after first
-                    if (original->GetNext()->GetNext() == nullptr) { //if only 2 songs
-                        p1.GetTail()->SetNext(original);
-                        p1.setHead(p1.GetTail());
-                        original->SetNext(nullptr);
-                        p1.setTail(original);
-                    } else { // if more than 2 songs
-                        temp = original->GetNext();
-                        original->SetNext(original->GetNext()->GetNext()); 
-                        temp->SetNext(original);
-                        p1.setHead(temp);
-                    }
-                    two = true;
-                }
-                index++;
-            }
-            if (newPosition <= 1)
-            {
-                newPosition++;
-            }
-            else {
-                for (PlaylistNode* curr = p1.GetHead(); curr != nullptr; curr = curr->GetNext())
-                {
-                    if (index == oldPosition) 
-                    {
-                        beforeOld = prev;
-                        cout << "oldPosition SET" << endl;
-                    }
-                    if (index == newPosition)
-                    {
-                        beforeNew = prev;
-                        atOldLocation = curr->GetNext();
-                        cout << "newPosition SET" << endl;
-                    }
-                    prev = curr;
-                    index++;
-                }
-            }
-            if (original == p1.GetHead() && index >= 3 && !two) {
-                cout << "position GREATER than 3" << endl;
-                if (atOldLocation == p1.GetTail()) {
-                    temp = original->GetNext();
-                    original->SetNext(nullptr); 
-                    atOldLocation->SetNext(original);
-                    p1.setHead(temp);  
-                } else {
-                    temp = original->GetNext();
-                    original->SetNext(atOldLocation->GetNext()); 
-                    atOldLocation->SetNext(original);
-                    //oldNew->SetNext(temp);
-                    p1.setHead(temp);
-                }             
-            }
+            p1.insert(newPosition, oldPosition);
             
             //cout << "\"" << tempCopy->GetSongName() << "\" removed" << endl;
         }

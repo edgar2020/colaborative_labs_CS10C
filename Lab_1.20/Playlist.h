@@ -24,6 +24,8 @@ public:
     PlaylistNode() : uniqueID("none"), songName("none"), artistName("none"), songLength(0), nextNodePtr(0) {}
     PlaylistNode(string uniqueID, string songName, string artistName , int songLength) : 
         uniqueID(uniqueID), songName(songName), artistName(artistName), songLength(songLength), nextNodePtr(nullptr) {}
+
+    ~PlaylistNode() {}
  
     /************************
      * Getter/Accessors     *
@@ -38,7 +40,7 @@ public:
      * Setters/Modifiers/Mutators     *
      **********************************/
     void PrintPlaylistNode();
-    void InsertAfter(Playlist &, PlaylistNode *);
+    void InsertAfter(PlaylistNode *);
     void SetNext(PlaylistNode *);
     
 };
@@ -54,6 +56,8 @@ class Playlist
         PlaylistNode* GetTail() const{return tail;}
         PlaylistNode* GetHead() const{return head;}
         void remove(string);
+        void remove(int);
+        void insert(int, int);
         void setTail(PlaylistNode*);
         void setHead(PlaylistNode*);
         Playlist(string name) : playlistName(name), head(nullptr), tail(nullptr) {}
