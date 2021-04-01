@@ -220,7 +220,7 @@ void Playlist::remove(int position)
     if (pre != nullptr) {
         for(PlaylistNode *curr = pre->GetNext(); curr!=nullptr; curr = curr->GetNext())
         {
-            if(index = position-1)
+            if(index == position-1)
             {
                 if(curr!=tail)//if mid value to be deleted
                 {

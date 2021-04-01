@@ -12,8 +12,10 @@ int main()
     
 
     // set up
-    cout<<"Enter playlist's title:"<<endl<<endl;
+    cout<<"Enter playlist's title:"<<endl;
     getline(cin, title);
+    cout << endl;
+            
     Playlist p1 = Playlist(title);
     // p1.setHead(nullptr);
     // PlaylistNode *newSong = new PlaylistNode("0001", "Abc", "artist", 123);
@@ -46,9 +48,9 @@ int main()
             cout<<"Enter artist's name:"<<endl;
             getline(cin, artist);
             
-            cout<<"Enter song's length (in seconds):"<< endl << endl;
+            cout<<"Enter song's length (in seconds):"<< endl;
             cin>>length;
-
+            cout << endl;
             // id=123;
             // name = "Allstart";
             // artist = "Smash mouth";
