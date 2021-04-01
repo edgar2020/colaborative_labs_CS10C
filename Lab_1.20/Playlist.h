@@ -57,6 +57,7 @@ class Playlist
         PlaylistNode* GetHead() const{return head;}
         void remove(string);
         void remove(int);
+        void insert(int, PlaylistNode*);
         void insert(int, int);
         void setTail(PlaylistNode*);
         void setHead(PlaylistNode*);

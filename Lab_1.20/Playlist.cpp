@@ -24,6 +24,7 @@ void PlaylistNode::InsertAfter(PlaylistNode * pre)
         this->nextNodePtr = pre;
         
         
+        
         // pre->nextNodePtr = nullptr;
     }
     else
@@ -55,97 +56,98 @@ void PlaylistNode::InsertAfter(PlaylistNode * pre)
     // }
 }
 
-void Playlist::insert(int newPos, int oldPos)
-{`
-    PlaylistNode *newPosition = nullptr;
-    PlaylistNode* copy = nullptr;
-    if(oldPos == newPos)
+void Playlist::insert(int pos, PlaylistNode* song)
+{
+    if(pos<=1)//working - replacing head
     {
-        cout<<"Cannot Be the Same"<<endl;
-        return;
+        // cout<<"messing with head";
+        PlaylistNode *temp = song;
+        temp->SetNext(head);
+        head = temp;
     }
-    int length = 0;
-    int index = 1;
-    
+    else
+    {
+        // cout<<"messing with mid section"<<endl<<endl;
+        int index = 2;
+        PlaylistNode *pre = head;
+        if(head != tail)//dealing with 2 length lists
+        {
+            for(PlaylistNode *curr = head->GetNext(); curr!=nullptr; curr=curr->GetNext())
+            {
+                if(pos == index)
+                {
+                    if(pre==tail)
+                    {
+                        // cout<<"tail"<<endl<<endl;
+                        setTail(song);
+                    }
+                    // cout<<"msdfsation"<<endl<<endl;
+                    pre->InsertAfter(song);
+                }
+                index++;
+                pre=curr;
+            }
+        }
+        else
+        {
+            song->SetNext(nullptr);
+            pre->InsertAfter(song);
+            setTail(song);
+        }
+    }
+}
 
+void Playlist::insert(int newPos, int oldPos)
+{
+    int index = 2;
+    int length = 0;
     for (PlaylistNode* curr = head; curr != nullptr; curr = curr->GetNext())
     {
         length++;
-        
     }
-    if(length<=1)
-        {
-            cout<<"NOT ENOUGH SONGS"<<endl;
-            return;
-        }
-    for (PlaylistNode* curr = head; curr != nullptr; curr = curr->GetNext())
+    if(newPos <=1)
     {
-        if(index == oldPos)
-        {
-            copy = curr;
-            copy->SetNext(nullptr);
-        }
-        index++;
+        newPos = 1;
     }
-    // remove(oldPos);
-
-
-    if(newPos<=1)//if new position is head
+    else if (newPos >= length)
     {
-        PlaylistNode *temp = head;
-
-        copy->SetNext(head->GetNext());
-        setHead(copy);
-        
+        newPos = length;
     }
-    // else if(newPos>length)
-    // {
-    //     newPos = length;
-    // }
-    // if(oldPos==1)
-    // {
-
-    // }
-    // for (PlaylistNode* curr = head; curr != nullptr; curr = curr->GetNext())
-    // {
-    //     if(index == oldPos)
-    //     {
-    //         oldPosition = curr;
-    //     }
-    //     index++;
-    // }
-    // pre->SetNext(oldPosition->GetNext());
-    // // else if(oldPos > length)
-    // // {
-    // //     oldPosition = tail;
-    // // }
-    // // else
-    // // {
-    // //     
-    // // }
-    // index = 1;
-    // if(newPos<=1)
-    // {
+    PlaylistNode* preOldNode = head;
+    PlaylistNode* beforeOldNode = nullptr;
+    PlaylistNode* copy = nullptr;
+    if(oldPos>1)//if node being moved is not head
+    {
+        // cout<<"oldNode is not head"<<endl;
+        for (PlaylistNode* curr = preOldNode->GetNext(); curr != nullptr; curr = curr->GetNext())
+        {
+            // cout<<endl<<index<<endl;
+            if(index == oldPos)
+            {
+                copy = curr;
+                // cout<<"-----------";
+                // copy->PrintPlaylistNode();
+                preOldNode->SetNext(curr->GetNext());
+                insert(newPos, copy);
+                cout << "\"" << copy->GetSongName() << "\" moved to position " << newPos <<endl; //
+                return;
+            }
+            index++;
+            preOldNode = curr;
+        }     
+    }
+    else//if node moved is head
+    { 
+        copy = head;
+        head = head->GetNext();       
+        // cout<<newPos<<endl<<endl<<endl;
+        insert(newPos, copy);
+        cout << "\"" << copy->GetSongName() << "\" moved to position " << newPos <<endl<<endl; //if I get rid of 1 endl i get the other test case correct
+        return;
         
-    // }
-    // else if(oldPos > length)
-    // {
-    //     oldPosition = tail;
-    // }
-    // else
-    // {
-    //     for (PlaylistNode* curr = head; curr != nullptr; curr = curr->GetNext())
-    //     {
-    //         if(index == oldPos)
-    //         {
-    //             oldPosition = curr;
-    //         }
-    //         index++;
-    //     }
-    // }
-    
-    
-    
+
+    }
+
 }
 
 void Playlist::setHead(PlaylistNode* temp)
