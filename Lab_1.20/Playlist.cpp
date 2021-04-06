@@ -58,41 +58,46 @@ void PlaylistNode::InsertAfter(PlaylistNode * pre)
 
 void Playlist::insert(int pos, PlaylistNode* song)
 {
+    //cout << "2ND INSERT ENTERD" << endl;
     if(pos<=1)//working - replacing head
     {
+        //cout << "WRONG BRANCH TAKEN" <<endl;
         // cout<<"messing with head";
         PlaylistNode *temp = song;
         temp->SetNext(head);
         head = temp;
     }
+    else if (pos == 2) {
+        song->SetNext(head->GetNext());
+        head->SetNext(song);
+    }
     else
     {
         // cout<<"messing with mid section"<<endl<<endl;
+        //cout << "CORRECT BRANCH TAKEN" << endl;
         int index = 2;
         PlaylistNode *pre = head;
-        if(head != tail)//dealing with 2 length lists
+        //cout << "Position: " << pos << "     index: " << index << endl;
+        for(PlaylistNode *curr = head->GetNext(); curr!=nullptr; curr=curr->GetNext())
         {
-            for(PlaylistNode *curr = head->GetNext(); curr!=nullptr; curr=curr->GetNext())
+            //cout << "loop enterd" << endl; 
+            if(pos - 1 == index)
             {
-                if(pos == index)
+                //cout << "INDEX FOUND" << endl;
+                if(curr==tail)
                 {
-                    if(pre==tail)
-                    {
-                        // cout<<"tail"<<endl<<endl;
-                        setTail(song);
-                    }
-                    // cout<<"msdfsation"<<endl<<endl;
-                    pre->InsertAfter(song);
+                    // cout<<"tail"<<endl<<endl;
+                    setTail(song);
+                    song->SetNext(nullptr);
+                    //cout << "TAIL SET" << endl;
+                } else{
+                    song->SetNext(curr->GetNext());
                 }
-                index++;
-                pre=curr;
+                // cout<<"msdfsation"<<endl<<endl;
+                curr->SetNext(song);
             }
-        }
-        else
-        {
-            song->SetNext(nullptr);
-            pre->InsertAfter(song);
-            setTail(song);
+            index++;
+            pre=curr;
         }
     }
 }
