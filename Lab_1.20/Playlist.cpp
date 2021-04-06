@@ -7,41 +7,162 @@ void PlaylistNode::PrintPlaylistNode()
     cout << "Unique ID: " << uniqueID << endl;
     cout << "Song Name: " << songName << endl;
     cout << "Artist Name: " << artistName << endl;
-    cout << "Song Length (in seconds) : " << songLength << endl;
+    cout << "Song Length (in seconds): " << songLength << endl << endl ;
 }
 
-void PlaylistNode::InsertAfter(Playlist &thePlaylist, PlaylistNode * pre) 
+void PlaylistNode::SetNext(PlaylistNode *temp)
 {
-    if(thePlaylist.GetHead()==nullptr)//if playlist empty
+   nextNodePtr = temp;
+} 
+
+void PlaylistNode::InsertAfter(PlaylistNode * pre) 
+{
+    PlaylistNode* tmpNext = nullptr;
+
+    if(this->nextNodePtr == nullptr)//if adding to tail
     {
-        // PlaylistNode *insetThis = this;
-        // cout << "InsertAfter Called" << endl;
-        thePlaylist.setHead(this);
-        thePlaylist.setTail(this);
-        // this->SetNext(nullptr);
-        // this->PrintPlaylistNode();
-    }
-    else if (thePlaylist.GetTail() == pre)//if playlist has many songs
-    {
-        thePlaylist.GetTail()->SetNext(this);
-        thePlaylist.setTail(this);
+        this->nextNodePtr = pre;
+        
+        
+        
+        // pre->nextNodePtr = nullptr;
     }
     else
     {
+        tmpNext = this->nextNodePtr;
+        this->nextNodePtr = pre;
+        pre->nextNodePtr = tmpNext;
+    }
+    // if(thePlaylist.GetHead()==nullptr)//if playlist empty
+    // {
+    //     // PlaylistNode *insetThis = this;
+    //     // cout << "InsertAfter Called" << endl;
+    //     thePlaylist.setHead(this);
+    //     thePlaylist.setTail(this);
+    //     // this->SetNext(nullptr);
+    //     // this->PrintPlaylistNode();
+    // }
+    // else if (thePlaylist.GetTail() == pre)//if playlist has many songs
+    // {
+    //     thePlaylist.GetTail()->SetNext(this);
+    //     thePlaylist.setTail(this);
+    // }
+    // else
+    // {
         
-        PlaylistNode *temp = pre->GetNext();
-        pre->SetNext(this);
-        this->SetNext(temp);
+    //     PlaylistNode *temp = pre->GetNext();
+    //     pre->SetNext(this);
+    //     this->SetNext(temp);
+    // }
+}
+
+void Playlist::insert(int pos, PlaylistNode* song)
+{
+    //cout << "2ND INSERT ENTERD" << endl;
+    if(pos<=1)//working - replacing head
+    {
+        //cout << "WRONG BRANCH TAKEN" <<endl;
+        // cout<<"messing with head";
+        PlaylistNode *temp = song;
+        temp->SetNext(head);
+        head = temp;
+    }
+    else if (pos == 2) {
+        song->SetNext(head->GetNext());
+        head->SetNext(song);
+    }
+    else
+    {
+        // cout<<"messing with mid section"<<endl<<endl;
+        //cout << "CORRECT BRANCH TAKEN" << endl;
+        int index = 2;
+        PlaylistNode *pre = head;
+        //cout << "Position: " << pos << "     index: " << index << endl;
+        for(PlaylistNode *curr = head->GetNext(); curr!=nullptr; curr=curr->GetNext())
+        {
+            //cout << "loop enterd" << endl; 
+            if(pos - 1 == index)
+            {
+                //cout << "INDEX FOUND" << endl;
+                if(curr==tail)
+                {
+                    // cout<<"tail"<<endl<<endl;
+                    setTail(song);
+                    song->SetNext(nullptr);
+                    //cout << "TAIL SET" << endl;
+                } else{
+                    song->SetNext(curr->GetNext());
+                }
+                // cout<<"msdfsation"<<endl<<endl;
+                curr->SetNext(song);
+            }
+            index++;
+            pre=curr;
+        }
     }
 }
+
+void Playlist::insert(int newPos, int oldPos)
+{
+    int index = 2;
+    int length = 0;
+    for (PlaylistNode* curr = head; curr != nullptr; curr = curr->GetNext())
+    {
+        length++;
+    }
+    if(newPos <=1)
+    {
+        newPos = 1;
+    }
+    else if (newPos >= length)
+    {
+        newPos = length;
+    }
+    PlaylistNode* preOldNode = head;
+    PlaylistNode* beforeOldNode = nullptr;
+    PlaylistNode* copy = nullptr;
+    if(oldPos>1)//if node being moved is not head
+    {
+        // cout<<"oldNode is not head"<<endl;
+        for (PlaylistNode* curr = preOldNode->GetNext(); curr != nullptr; curr = curr->GetNext())
+        {
+            // cout<<endl<<index<<endl;
+            if(index == oldPos)
+            {
+                copy = curr;
+                // cout<<"-----------";
+                // copy->PrintPlaylistNode();
+                preOldNode->SetNext(curr->GetNext());
+                insert(newPos, copy);
+                cout << "\"" << copy->GetSongName() << "\" moved to position " << newPos <<endl; //
+                return;
+            }
+            index++;
+            preOldNode = curr;
+        }     
+    }
+    else//if node moved is head
+    { 
+        copy = head;
+        head = head->GetNext();       
+        // cout<<newPos<<endl<<endl<<endl;
+        insert(newPos, copy);
+        cout << "\"" << copy->GetSongName() << "\" moved to position " << newPos <<endl<<endl; //if I get rid of 1 endl i get the other test case correct
+        return;
+        
+
+    }
+
+}
+
 void Playlist::setHead(PlaylistNode* temp)
 {
-    cout << "HEAD SET" << endl;
+    // cout << "HEAD SET" << endl;
     head=temp;
-    if (GetHead() == nullptr)
-        cout << "HEAD STILL NULL" << endl;
-    else
-        cout << "HEAD NOT NULL" << endl;
+    // if (GetHead() == nullptr)
+    //     cout << "HEAD STILL NULL" << endl;
+    // else
+    //     cout << "HEAD NOT NULL" << endl;
 }
 void Playlist::setTail(PlaylistNode* temp)
 {
@@ -58,7 +179,7 @@ void Playlist::remove(string ID)
         head = head->GetNext();
         songName = temp->GetSongName();
         delete temp;
-        cout << "\"" << songName << "\" removed" << endl;
+        cout << "\"" << songName << "\" removed."<< endl << endl;
         return;
     }
     PlaylistNode *pre = head;
@@ -78,7 +199,7 @@ void Playlist::remove(string ID)
                     pre->SetNext(nullptr);               
                 }
                 delete curr;
-                cout << "\"" << songName << "\" removed" << endl;
+                cout << "\"" << songName << "\" removed."<< endl << endl;
                 return;
 
                 //if tail is to be deleted
@@ -90,17 +211,50 @@ void Playlist::remove(string ID)
     cout<<"Song by ID  \""+ID+"\" not found"<<endl;
 }
 
-void PlaylistNode::SetNext(PlaylistNode *temp)
+void Playlist::remove(int position)
 {
-   nextNodePtr = temp;
-} 
+    int index = 1;
+    if(position<=1)
+    {
+        PlaylistNode *temp = head;
+        head = (head->GetNext());
+        delete temp;
+        return;
+    }
+    PlaylistNode *pre = head;
+    if (pre != nullptr) {
+        for(PlaylistNode *curr = pre->GetNext(); curr!=nullptr; curr = curr->GetNext())
+        {
+            if(index == position-1)
+            {
+                if(curr!=tail)//if mid value to be deleted
+                {
+                    pre->SetNext(curr->GetNext());
+                }
+                else//if tail is final value
+                {
+                    pre->SetNext(nullptr);               
+                }
+                delete curr;
+                return;
+
+                //if tail is to be deleted
+                
+            }
+            pre = curr;
+        }
+    }
+    
+    
+}
 
 
 ostream &operator<<(ostream & os, const Playlist &somePlaylist)
 {
+    os<<somePlaylist.playlistName<<" - OUTPUT FULL PLAYLIST" << endl;
     if(somePlaylist.GetHead()!=nullptr)
     {
-        os<<somePlaylist.playlistName<<" - OUTPUT FULL PLAYLIST" << endl;
+        
         
         int num = 1;
         for(PlaylistNode *curr = somePlaylist.GetHead(); curr!=nullptr; curr = curr->GetNext())
@@ -113,7 +267,7 @@ ostream &operator<<(ostream & os, const Playlist &somePlaylist)
     }
     else
     {
-        os<<"Playlist is empty"<<endl;
+        os<<"Playlist is empty"<<endl<<endl;
     }
     return os;
 }
