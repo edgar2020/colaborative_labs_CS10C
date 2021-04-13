@@ -17,7 +17,6 @@ T getElement(vector<T> vals, int index);
 
 vector<char> createVector(){
     int vecSize = rand() % 26;
-    //cout << "Size: " << vecSize << endl;
     char c = 'a';
     vector<char> vals;
     for(int i = 0; i < vecSize; i++)
