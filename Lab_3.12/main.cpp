@@ -86,18 +86,4 @@ template<typename T>
 T getElement(vector<T> vals, int index)
 {
     return vals.at(index);
-
-    // try {
-    //     if (index >= vals.size() || index < 0)
-    //     {
-    //         throw out_of_range("out of range exception occured"); 
-    //     }
-    //     else return vals.at(index);
-    // }
-    // catch (const out_of_range& excpt)
-    // {
-    //     cout << excpt.what() << endl;
-    //     return ' ';
-    // }
-    
 }
