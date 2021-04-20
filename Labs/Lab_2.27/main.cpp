@@ -31,10 +31,15 @@ int main() {
     list0.push_back(-3);
     cout<<"Push back 3 values: "<<list0<<endl;
 
-    cout<<"Print Reverse: ";
+    cout<<"Print Reverse: "<<endl;
     list0.printReverse();
+    cout<<endl;
     list0.pop_back();
+    list0.printReverse();
+    cout<<endl;
     list0.pop_back();
+    list0.printReverse();
+    cout<<endl;
     list0.pop_back();
     
     cout<<"Print Reverse of empty: ";
