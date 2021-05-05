@@ -68,5 +68,7 @@ class arithmeticExpression{
 
     /* Helper function for generating the dotty file. This is a recursive function. */
     void visualizeTree(ofstream &, TreeNode *);
+    bool isOpp(char c)
+    { return (c == '+' || c == '-' || c == '*' || c == '/' /**|| c == '(' || c == ')')**/);}
 };
 #endif

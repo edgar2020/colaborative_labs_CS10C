@@ -1,0 +1,15 @@
+digraph G {
+g[color = lightgreen, style = filled, label="*"];
+g -> c
+g -> f
+c[color = lightgreen, style = filled, label="+"];
+c -> a
+c -> b
+a[color = orange, peripheries=2, style = filled, label="a"];
+b[color = orange, peripheries=2, style = filled, label="b"];
+f[color = lightgreen, style = filled, label="-"];
+f -> d
+f -> e
+d[color = orange, peripheries=2, style = filled, label="c"];
+e[color = orange, peripheries=2, style = filled, label="d"];
+}

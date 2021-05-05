@@ -1,0 +1,11 @@
+digraph G {
+e[color = lightgreen, style = filled, label="+"];
+e -> a
+e -> d
+a[color = orange, peripheries=2, style = filled, label="a"];
+d[color = lightgreen, style = filled, label="*"];
+d -> b
+d -> c
+b[color = orange, peripheries=2, style = filled, label="b"];
+c[color = orange, peripheries=2, style = filled, label="c"];
+}
