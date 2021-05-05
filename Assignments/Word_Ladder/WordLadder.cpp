@@ -44,6 +44,7 @@
         {
             exist = true;
         }
+    
     }
     dict.remove(deleteThisWords);
 // cout<<"test test test"<<endl;

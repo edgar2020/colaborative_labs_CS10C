@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Heap.h"
 #include <random>
+#include <time.h>
 
 using namespace std;
 
@@ -25,8 +26,8 @@ int menu() {
 int main(){
     Heap max_heap;
 
-// srand(2);
-//     for(int i = 0; i < 6; i++)
+// srand(time(0));
+//     for(int i = 0; i < 10; i++)
 //     {
         
 //         max_heap.enqueue(new PrintJob(rand() % 100, rand() % 100, rand() % 100));
@@ -37,22 +38,22 @@ int main(){
  while (choice != 4) {
 
     if (choice == 1) {
-      int priority, jobNumber, numPages;
-      cout << "Enter print job to enqueue (priority, job Number, number of pages): ";
-      cin>>priority>>jobNumber>>numPages;
-      cout << endl;
+        int priority, jobNumber, numPages;
+        cout << "Enter print job to enqueue (priority, job Number, number of pages): ";
+        cin>>priority>>jobNumber>>numPages;
+        cout << endl;
 
-      max_heap.enqueue(new PrintJob(priority, jobNumber, numPages));
+        max_heap.enqueue(new PrintJob(priority, jobNumber, numPages));
 
-    } 
-    else if (choice == 2) {
-      max_heap.print();
-    }
-    else if (choice == 3) {
-        max_heap.dequeue();
-    }
-    //fix buffer just in case non-numeric choice entered
-    choice = menu();
+        } 
+        else if (choice == 2) {
+        max_heap.print();
+        }
+        else if (choice == 3) {
+            max_heap.dequeue();
+        }
+        //fix buffer just in case non-numeric choice entered
+        choice = menu();
     }
     return 0;
 }

@@ -1,0 +1,27 @@
+digraph G {
+m[color = lightgreen, style = filled, label="-"];
+m -> e
+m -> l
+e[color = lightgreen, style = filled, label="+"];
+e -> a
+e -> d
+a[color = orange, peripheries=2, style = filled, label="a"];
+d[color = lightgreen, style = filled, label="*"];
+d -> b
+d -> c
+b[color = orange, peripheries=2, style = filled, label="b"];
+c[color = orange, peripheries=2, style = filled, label="c"];
+l[color = lightgreen, style = filled, label="*"];
+l -> j
+l -> k
+j[color = lightgreen, style = filled, label="+"];
+j -> h
+j -> i
+h[color = lightgreen, style = filled, label="*"];
+h -> f
+h -> g
+f[color = orange, peripheries=2, style = filled, label="d"];
+g[color = orange, peripheries=2, style = filled, label="e"];
+i[color = orange, peripheries=2, style = filled, label="f"];
+k[color = orange, peripheries=2, style = filled, label="g"];
+}
