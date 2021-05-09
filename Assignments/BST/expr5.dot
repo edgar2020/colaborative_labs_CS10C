@@ -1,0 +1,35 @@
+digraph G {
+papa[color = orange, fontsize=27 peripheries=2, style = filled, label="papa(1)"];
+papa -> alpha
+alpha[color = orange, fontsize=27 peripheries=2, style = filled, label="alpha(3)"];
+alpha -> hotel
+hotel[color = orange, fontsize=27 peripheries=2, style = filled, label="hotel(1)"];
+hotel -> bravo
+bravo[color = orange, fontsize=27 peripheries=2, style = filled, label="bravo(1)"];
+bravo -> charlie
+charlie[color = orange, fontsize=27 peripheries=2, style = filled, label="charlie(1)"];
+charlie -> delta
+delta[color = orange, fontsize=27 peripheries=2, style = filled, label="delta(1)"];
+delta -> epsilon
+epsilon[color = orange, fontsize=27 peripheries=2, style = filled, label="epsilon(1)"];
+epsilon -> foxtrot
+foxtrot[color = orange, fontsize=27 peripheries=2, style = filled, label="foxtrot(1)"];
+foxtrot -> golf
+golf[color = orange, fontsize=27 peripheries=2, style = filled, label="golf(1)"];
+hotel -> india
+india[color = orange, fontsize=27 peripheries=2, style = filled, label="india(2)"];
+india -> juliet
+juliet[color = orange, fontsize=27 peripheries=2, style = filled, label="juliet(1)"];
+juliet -> kilo
+kilo[color = orange, fontsize=27 peripheries=2, style = filled, label="kilo(1)"];
+kilo -> lima
+lima[color = orange, fontsize=27 peripheries=2, style = filled, label="lima(1)"];
+lima -> mike
+mike[color = orange, fontsize=27 peripheries=2, style = filled, label="mike(1)"];
+mike -> nov
+nov[color = orange, fontsize=27 peripheries=2, style = filled, label="nov(1)"];
+nov -> oscar
+oscar[color = orange, fontsize=27 peripheries=2, style = filled, label="oscar(1)"];
+papa -> quebec
+quebec[color = orange, fontsize=27 peripheries=2, style = filled, label="quebec(1)"];
+}
