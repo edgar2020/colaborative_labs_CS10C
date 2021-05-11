@@ -141,13 +141,13 @@ int main( ) {
     BSTree tree;
     cout<<boolalpha;
     
-    // vector<string> tests = {"apple", "cherry", "bannana", "bannana", "orange", "date", "dragonfruit", "grapes", "grapefruit", "eggplant", "kiwi", "i dont know any more fruits", "starfruit", "pear", "tomato", "date", "bannana", "apple", "orange", "cherry", "strawberry", "watermelon", "grape", "starfruit", "tomato", "dragonfruit", "pomegranate", "void fruit", "papaya", "mango"};
+    vector<string> tests = {"apple", "cherry", "bannana", "bannana", "orange", "date", "dragonfruit", "grapes", "grapefruit", "eggplant", "kiwi", "i dont know any more fruits", "starfruit", "pear", "tomato", "date", "bannana", "apple", "orange", "cherry", "strawberry", "watermelon", "grape", "starfruit", "tomato", "dragonfruit", "pomegranate", "void fruit", "papaya", "mango"};
     // vector<string> tests = {"papa", "quebec", "alpha", "hotel", "india", "juliet", "kilo", "bravo", "alpha", "lima", "charlie", "alpha", "india", "delta", "epsilon", "mike", "nov", "oscar", "foxtrot", "golf"};
     // // tests = random_shuffle(tests.begin(), tests.end());
-    // for(string word : tests)
-    // {
-    //     tree.insert(word);
-    // }
+    for(string word : tests)
+    {
+        tree.insert(word);
+    }
     // tree.remove("alpha");
     // tree.remove("bravo");
     // tree.remove("oscar");
@@ -161,7 +161,7 @@ int main( ) {
     // for(int i = 0; i < 40; i++)
     // {
     //   num = rand() % tests.size();
-    //   tree.insert(tests.at(num));
+      // tree.insert(tests.at(num));
     // }
 
     // tree.visualizeTree("expr5.dot");

@@ -1,0 +1,35 @@
+digraph G {
+india[color = lightblue, peripheries=2, style = filled];
+bravo[color = lightblue, peripheries=2, style = filled];
+alpha[color = lightblue, peripheries=2, style = filled];
+alpha -> null_leftalpha;
+null_leftalpha[shape = point];
+alpha -> null_rightalpha;
+null_rightalpha[shape = point];
+bravo -> alpha;
+hotel[color = lightblue, peripheries=2, style = filled];
+charlie[color = lightblue, peripheries=2, style = filled];
+charlie -> null_leftcharlie;
+null_leftcharlie[shape = point];
+charlie -> null_rightcharlie;
+null_rightcharlie[shape = point];
+hotel -> charlie;
+hotel -> null_righthotel;
+null_righthotel[shape = point];
+bravo -> hotel;
+india -> bravo;
+papa[color = lightblue, peripheries=2, style = filled];
+juliet[color = lightblue, peripheries=2, style = filled];
+juliet -> null_leftjuliet;
+null_leftjuliet[shape = point];
+juliet -> null_rightjuliet;
+null_rightjuliet[shape = point];
+papa -> juliet;
+quebec[color = lightblue, peripheries=2, style = filled];
+quebec -> null_leftquebec;
+null_leftquebec[shape = point];
+quebec -> null_rightquebec;
+null_rightquebec[shape = point];
+papa -> quebec;
+india -> papa;
+}

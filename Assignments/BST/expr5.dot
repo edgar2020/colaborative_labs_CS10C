@@ -1,35 +1,43 @@
 digraph G {
-papa[color = orange, fontsize=27 peripheries=2, style = filled, label="papa(1)"];
-papa -> alpha
-alpha[color = orange, fontsize=27 peripheries=2, style = filled, label="alpha(3)"];
-alpha -> hotel
-hotel[color = orange, fontsize=27 peripheries=2, style = filled, label="hotel(1)"];
-hotel -> bravo
-bravo[color = orange, fontsize=27 peripheries=2, style = filled, label="bravo(1)"];
-bravo -> charlie
-charlie[color = orange, fontsize=27 peripheries=2, style = filled, label="charlie(1)"];
-charlie -> delta
-delta[color = orange, fontsize=27 peripheries=2, style = filled, label="delta(1)"];
-delta -> epsilon
-epsilon[color = orange, fontsize=27 peripheries=2, style = filled, label="epsilon(1)"];
-epsilon -> foxtrot
-foxtrot[color = orange, fontsize=27 peripheries=2, style = filled, label="foxtrot(1)"];
-foxtrot -> golf
-golf[color = orange, fontsize=27 peripheries=2, style = filled, label="golf(1)"];
-hotel -> india
-india[color = orange, fontsize=27 peripheries=2, style = filled, label="india(2)"];
-india -> juliet
-juliet[color = orange, fontsize=27 peripheries=2, style = filled, label="juliet(1)"];
-juliet -> kilo
-kilo[color = orange, fontsize=27 peripheries=2, style = filled, label="kilo(1)"];
-kilo -> lima
-lima[color = orange, fontsize=27 peripheries=2, style = filled, label="lima(1)"];
-lima -> mike
-mike[color = orange, fontsize=27 peripheries=2, style = filled, label="mike(1)"];
-mike -> nov
-nov[color = orange, fontsize=27 peripheries=2, style = filled, label="nov(1)"];
-nov -> oscar
-oscar[color = orange, fontsize=27 peripheries=2, style = filled, label="oscar(1)"];
-papa -> quebec
-quebec[color = orange, fontsize=27 peripheries=2, style = filled, label="quebec(1)"];
+apple[color = orange, fontsize=27 peripheries=2, style = filled, label="apple(2)"];
+apple -> cherry
+cherry[color = orange, fontsize=27 peripheries=2, style = filled, label="cherry(2)"];
+cherry -> bannana
+bannana[color = orange, fontsize=27 peripheries=2, style = filled, label="bannana(3)"];
+cherry -> orange
+orange[color = orange, fontsize=27 peripheries=2, style = filled, label="orange(2)"];
+orange -> date
+date[color = orange, fontsize=27 peripheries=2, style = filled, label="date(2)"];
+date -> dragonfruit
+dragonfruit[color = orange, fontsize=27 peripheries=2, style = filled, label="dragonfruit(2)"];
+dragonfruit -> grapes
+grapes[color = orange, fontsize=27 peripheries=2, style = filled, label="grapes(1)"];
+grapes -> grapefruit
+grapefruit[color = orange, fontsize=27 peripheries=2, style = filled, label="grapefruit(1)"];
+grapefruit -> eggplant
+eggplant[color = orange, fontsize=27 peripheries=2, style = filled, label="eggplant(1)"];
+eggplant -> grape
+grape[color = orange, fontsize=27 peripheries=2, style = filled, label="grape(1)"];
+grapes -> kiwi
+kiwi[color = orange, fontsize=27 peripheries=2, style = filled, label="kiwi(1)"];
+kiwi -> i dont know any more fruits
+i dont know any more fruits[color = orange, fontsize=27 peripheries=2, style = filled, label="i dont know any more fruits(1)"];
+kiwi -> mango
+mango[color = orange, fontsize=27 peripheries=2, style = filled, label="mango(1)"];
+orange -> starfruit
+starfruit[color = orange, fontsize=27 peripheries=2, style = filled, label="starfruit(2)"];
+starfruit -> pear
+pear[color = orange, fontsize=27 peripheries=2, style = filled, label="pear(1)"];
+pear -> papaya
+papaya[color = orange, fontsize=27 peripheries=2, style = filled, label="papaya(1)"];
+pear -> pomegranate
+pomegranate[color = orange, fontsize=27 peripheries=2, style = filled, label="pomegranate(1)"];
+starfruit -> tomato
+tomato[color = orange, fontsize=27 peripheries=2, style = filled, label="tomato(2)"];
+tomato -> strawberry
+strawberry[color = orange, fontsize=27 peripheries=2, style = filled, label="strawberry(1)"];
+tomato -> watermelon
+watermelon[color = orange, fontsize=27 peripheries=2, style = filled, label="watermelon(1)"];
+watermelon -> void fruit
+void fruit[color = orange, fontsize=27 peripheries=2, style = filled, label="void fruit(1)"];
 }
