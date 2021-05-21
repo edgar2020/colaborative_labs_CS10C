@@ -24,7 +24,8 @@ int main( ) {
 
   AVLTree tree;
   
-      // tree.visualizeTree("expr1.dot");
+  tree.visualizeTree("beforeRotation.dot");  
+  tree.visualizeTree("afterRotation.dot");
   int choice = menu();
 
   string entry;
@@ -36,7 +37,6 @@ int main( ) {
       getline(cin, entry);
       cout << endl;
       tree.insert(entry);
-      // tree.visualizeTree("expr1.dot");
 
     } else if (choice == 2) {
       tree.printBalanceFactors();

@@ -157,13 +157,13 @@ bool BSTree::search(const string &key, Node* subRoot) const
 {
     if(subRoot)
     {
-      if(subRoot->data == key)
+      if(subRoot->data == key)//base case
          return true;
       else if (search(key, subRoot->left) || search(key, subRoot->right))
          return true;
       else
          return false;
-    }//base case
+    }
     return false;
 }
 

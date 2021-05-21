@@ -54,8 +54,11 @@ void AVLTree::insert(const string &newString)
       if (prev->data > newString)
          prev->left = node;
       else
-         prev->right = node;   
+         prev->right = node;
+         
+        visualizeTree("beforeRotation.dot");
         rotate(findUnbalancedNode(newString));
+        visualizeTree("afterRotation.dot");
    }//end of if is tree is populated
    else
    {

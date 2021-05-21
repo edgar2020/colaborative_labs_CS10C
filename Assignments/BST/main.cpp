@@ -134,20 +134,20 @@ int menu() {
 
 int main( ) {
     // Pass all your tests before running the executable main
-    // run_tests();  // TODO: Remove before submitting
+    run_tests();  // TODO: Remove before submitting
    // return 0;
 
 //    apple(1), cherry(1), bannana(1), watermelon(1), orange(1), date(1), dragonfruit(1), grapes(1), grapefruit(1), eggplant(1), kiwi(1), i dont know any more fruits(1), starfruit(1), pear(1), tomato(1)
     BSTree tree;
     cout<<boolalpha;
     
-    vector<string> tests = {"apple", "cherry", "bannana", "bannana", "orange", "date", "dragonfruit", "grapes", "grapefruit", "eggplant", "kiwi", "i dont know any more fruits", "starfruit", "pear", "tomato", "date", "bannana", "apple", "orange", "cherry", "strawberry", "watermelon", "grape", "starfruit", "tomato", "dragonfruit", "pomegranate", "void fruit", "papaya", "mango"};
+    // vector<string> tests = {"apple", "cherry", "bannana", "bannana", "orange", "date", "dragonfruit", "grapes", "grapefruit", "eggplant", "kiwi", "i dont know any more fruits", "starfruit", "pear", "tomato", "date", "bannana", "apple", "orange", "cherry", "strawberry", "watermelon", "grape", "starfruit", "tomato", "dragonfruit", "pomegranate", "void fruit", "papaya", "mango"};
     // vector<string> tests = {"papa", "quebec", "alpha", "hotel", "india", "juliet", "kilo", "bravo", "alpha", "lima", "charlie", "alpha", "india", "delta", "epsilon", "mike", "nov", "oscar", "foxtrot", "golf"};
     // // tests = random_shuffle(tests.begin(), tests.end());
-    for(string word : tests)
-    {
-        tree.insert(word);
-    }
+    // for(string word : tests)
+    // {
+    //     tree.insert(word);
+    // }
     // tree.remove("alpha");
     // tree.remove("bravo");
     // tree.remove("oscar");
@@ -176,12 +176,12 @@ int main( ) {
           cout << "Enter string to insert: " << endl;
           getline(cin, entry);
           tree.insert(entry);
-          // tree.visualizeTree("expr5.dot");
+          tree.visualizeTree("expr5.dot");
         } else if (choice == 2) {
           cout << "Enter string to remove: " << endl;
           getline(cin, entry);
           tree.remove(entry);
-          // tree.visualizeTree("expr5.dot");
+          tree.visualizeTree("expr5.dot");
         } else if (choice == 3) {
             printOrders(&tree);
         } else if (choice == 4) {
