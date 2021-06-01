@@ -1,0 +1,15 @@
+digraph G {
+Apple[color = lightblue, peripheries=2, style = filled];
+Apple -> null_leftApple;
+null_leftApple[shape = point];
+Orange[color = lightblue, peripheries=2, style = filled];
+Orange -> null_leftOrange;
+null_leftOrange[shape = point];
+Pear[color = lightblue, peripheries=2, style = filled];
+Pear -> null_leftPear;
+null_leftPear[shape = point];
+Pear -> null_rightPear;
+null_rightPear[shape = point];
+Orange -> Pear;
+Apple -> Orange;
+}

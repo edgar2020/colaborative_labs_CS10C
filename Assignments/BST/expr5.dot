@@ -1,5 +1,7 @@
 digraph G {
 apple[color = orange, fontsize=27 peripheries=2, style = filled, label="apple(2)"];
+apple -> 1
+1[color = orange, fontsize=27 peripheries=2, style = filled, label="1(1)"];
 apple -> cherry
 cherry[color = orange, fontsize=27 peripheries=2, style = filled, label="cherry(2)"];
 cherry -> bannana

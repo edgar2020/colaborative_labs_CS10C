@@ -10,7 +10,6 @@
         cout << "Could not open file: " << inputFile;
         return;
     }
-    
     string curr;
     while (inFS >> curr)
     {
