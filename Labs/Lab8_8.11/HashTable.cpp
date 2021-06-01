@@ -28,10 +28,10 @@ HashTable::HashTable (int s) {
 int HashTable::computeHash(const string &s) {
     int hash  = 5;
     
-    for( char c :  s.substr(0,s.size()/4))
+    for( char c :  s.substr(0,3))
     {
         // hash += c;
-		hash = ((hash *3)%size + c);
+		hash = (((hash *57)%size) + c);
     }
     //return sum % size;
 //    for (char c : s.substr(0,s.size()/4)) {
