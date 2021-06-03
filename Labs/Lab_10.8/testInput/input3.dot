@@ -1,0 +1,9 @@
+digraph G {
+Micky_Mouse[style = "filled", color=skyblue, label="Micky_Mouse, 0"];
+Micky_Mouse -> Wille_E_Coyote;
+Wille_E_Coyote[style = "filled", color=skyblue1, label="Wille_E_Coyote, 1"];
+Wille_E_Coyote -> Micky_Mouse;
+Micky_Mouse -> Scoobie_Doo;
+Scoobie_Doo[style = "filled", color=skyblue1, label="Scoobie_Doo, 1"];
+Scoobie_Doo -> Wille_E_Coyote;
+}
